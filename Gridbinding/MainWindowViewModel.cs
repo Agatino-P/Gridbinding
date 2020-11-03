@@ -31,6 +31,26 @@ namespace Gridbinding
         }
 
 
+
+        private RelayCommand _replaceCmd;
+        public RelayCommand ReplaceCmd => _replaceCmd ?? (_replaceCmd = new RelayCommand(
+            () => replace(),
+            () => { return 1 == 1; },
+			keepTargetAlive:true
+            ));
+        private void replace()
+        {
+            List<PP> newList = new List<PP>();
+            for (int i = 1; i <= 10; i++)
+            {
+                newList.Add(new PP($"N{i}", $"D{i}", i*10));
+            }
+            Opps = new ObservableCollection<PP>(newList);
+
+
+        }
+
+
         public MainWindowViewModel()
         {
             populate();

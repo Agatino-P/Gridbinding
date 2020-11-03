@@ -17,13 +17,20 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
+
         <DataGrid ItemsSource="{Binding Opps}" />
         <Button
             Grid.Row="1"
+            Command="{Binding ReplaceCmd}"
+            Content="Replace" />
+        <Button
+            Grid.Row="2"
             Command="{Binding DumpCmd}"
             Content="Dump" />
-        <TextBlock Text="{Binding Txt}" Grid.Row="2"/>
+        
+        <TextBlock Grid.Row="3" Text="{Binding Txt}" />
 
     </Grid>
 </Window>
